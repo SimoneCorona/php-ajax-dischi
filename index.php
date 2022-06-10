@@ -26,25 +26,27 @@ include_once __DIR__ ."/database.php";
     ></script>
 </head>
 <body>
+    <!-- header -->
     <header>
         <div class="header_wrapper">
-            <img src="../assets/img/logo-small.svg" alt="">
+            <img src="./img/logo-small.svg" alt="">
         </div>
     </header>
+    <!-- main -->
     <main id="root">
         <!-- PHP -->
         <?php foreach ($database as $single_album) {
             echo "<div>
-                    <h1>$single_album[title]<h1>
                     <img src=$single_album[poster] alt=>
+                    <h1>$single_album[title]</h1>
                     <p>$single_album[author]</p>
                     <p>$single_album[year]</p>
                 </div>";
             }?>
         <!-- VUE -->
         <div v-for="item in albums">
-            <h2> {{ item.title }} </h2>
             <img :src='item.poster' alt= "">
+            <h1> {{ item.title }} </h1>
             <p>{{ item.author }}</p>
             <p>{{ item.year }}</p>
         </div>
