@@ -7,7 +7,6 @@ Attraverso un’altra chiamata api, filtrare gli album per genere. -->
 
 <?php
 include_once __DIR__ ."/database.php";
-var_dump($database)
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +22,14 @@ var_dump($database)
 
     </header>
     <main>
-
+        <?php foreach ($database as $single_album) {
+            echo "<div>
+                    <h1>$single_album[title]<h1>
+                    <img src=$single_album[poster] alt=>
+                    <p>$single_album[author]</p>
+                    <p>$single_album[year]</p>
+                </div>";
+            }?>
     </main>
 </body>
 </html>
