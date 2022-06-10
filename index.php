@@ -7,7 +7,7 @@ Attraverso un’altra chiamata api, filtrare gli album per genere. -->
 
 <?php
 include_once __DIR__ ."/database.php";
-?>
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,12 +18,21 @@ include_once __DIR__ ."/database.php";
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+      integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
 </head>
 <body>
     <header>
-
+        <div class="header_wrapper">
+            <img src="../assets/img/logo-small.svg" alt="">
+        </div>
     </header>
     <main id="root">
+        <!-- PHP -->
         <?php foreach ($database as $single_album) {
             echo "<div>
                     <h1>$single_album[title]<h1>
@@ -32,6 +41,13 @@ include_once __DIR__ ."/database.php";
                     <p>$single_album[year]</p>
                 </div>";
             }?>
+        <!-- VUE -->
+        <div v-for="item in albums">
+            <h2> {{ item.title }} </h2>
+            <img :src='item.poster' alt= "">
+            <p>{{ item.author }}</p>
+            <p>{{ item.year }}</p>
+        </div>
     </main>
 
     <script src="js/script.js"></script>

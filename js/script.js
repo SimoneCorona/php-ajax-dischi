@@ -6,10 +6,10 @@ const app = new Vue (
         },
         created() {
             axios
-              .get("http://http://localhost/php-ajax-dischi/server.php")
+              .get("http://localhost/php-ajax-dischi/server.php")
               .then((resp) => {
                 this.albums = resp.data;
-                console.log(albums)
+                console.log(this.albums);
               });
           },
     });
