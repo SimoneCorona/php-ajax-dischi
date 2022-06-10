@@ -16,12 +16,14 @@ include_once __DIR__ ."/database.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 </head>
 <body>
     <header>
 
     </header>
-    <main>
+    <main id="root">
         <?php foreach ($database as $single_album) {
             echo "<div>
                     <h1>$single_album[title]<h1>
@@ -31,5 +33,7 @@ include_once __DIR__ ."/database.php";
                 </div>";
             }?>
     </main>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
